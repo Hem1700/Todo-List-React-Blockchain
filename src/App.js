@@ -42,6 +42,7 @@ class App extends Component {
       loading: true,
     };
     this.createTask = this.createTask.bind(this)
+    this.toggleCompleted = this.toggleCompleted.bind(this)
   }
 
   createTask(content) {
@@ -53,11 +54,21 @@ class App extends Component {
 
   }
 
+  toggleCompleted(taskId) {
+    this.setState({ loading: true })
+    this.state.todoList.methods.toggleCompleted(taskId).send({ from: this.state.account })
+      .once('receipt', (receipt) => {
+        this.setState({ loading: false })
+      })
+
+  }
+
+
   render() {
     return (
       <div>
         <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-          <a className="navbar-brand col-sm-3 col-md-2 mr-0" href="http://www.dappuniversity.com/free-download" target="_blank">Dapp University | Todo List</a>
+          <a className="navbar-brand col-sm-3 col-md-2 mr-0" href="http://www.dappuniversity.com/free-download" target="_blank">Todo List</a>
           <ul className="navbar-nav px-3">
             <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
               <small><a className="nav-link" href="#"><span id="account"></span></a></small>
@@ -70,7 +81,11 @@ class App extends Component {
               {
                 this.state.loading
                   ? <div id="loader" className="text-center"><p className="text-center">Loading...</p></div>
-                  : <TodoList tasks={this.state.tasks} createTask={this.createTask} />
+                  : <TodoList
+                    tasks={this.state.tasks}
+                    createTask={this.createTask}
+                    toggleCompleted={this.toggleCompleted}
+                  />
               }
 
             </main>
