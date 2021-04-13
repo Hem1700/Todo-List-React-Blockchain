@@ -1,0 +1,9 @@
+.Todo__input{
+    margin-bottom: 50px;
+}
+.Todo__ul{
+    font-size: 25px !important;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+}

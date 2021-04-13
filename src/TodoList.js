@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import "./TodoList.css";
 class TodoList extends Component {
     render() {
         return (
@@ -13,12 +13,12 @@ class TodoList extends Component {
                             this.task = input
                         }}
                         type="text"
-                        className="form-control"
+                        className="form-control Todo__input"
                         placeholder="Add task..."
                         required />
                     <input type="submit" hidden={true} />
                 </form>
-                <ul id="taskList" className="list-unstyled">
+                <ul id="taskList" className="Todo__ul list-unstyled">
                     {
                         this.props.tasks.map((task, key) => {
                             return (

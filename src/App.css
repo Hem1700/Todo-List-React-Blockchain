@@ -2,7 +2,25 @@ main {
     margin-top: 60px;
   }
 
-
+.App__svg{
+  width: 550px;
+  height:auto;
+  margin-top: 130px;
+  margin-left: 40px;
+}
+.App__second-column{
+  margin-top: 130px;
+  margin-left: 80px;
+}
+.App__navbar{
+  background-color: grey;
+  height: 12vh;
+}
+.App__item{
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 25px;
+  padding: 2.5rem 2rem 2.5rem 2.5rem;
+}
 form {
     width: 350px;
     margin-bottom: 10px;

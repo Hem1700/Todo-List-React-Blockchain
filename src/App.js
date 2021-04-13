@@ -3,9 +3,8 @@ import Web3 from 'web3'
 import './App.css';
 import { TODO_LIST_ABI, TODO_LIST_ADDRESS } from './config'
 import TodoList from './TodoList'
-
-
-class App extends Component {
+import Svg from './svg/todoList.jpeg';
+class App extends React.Component {
   componentWillMount() {
     this.loadBlockchainData()
   }
@@ -67,17 +66,25 @@ class App extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-          <a className="navbar-brand col-sm-3 col-md-2 mr-0" href="http://www.dappuniversity.com/free-download" target="_blank">Todo List</a>
+        <div className="container-fluid App_Container">
+        <nav className="App__navbar navbar navbar-dark fixed-top flex-md-nowrap p-0 shadow">
+          <a className="navbar-brand App__item col-sm-3 col-md-2 mr-0" href="#" target="_blank">Todo List</a>
           <ul className="navbar-nav px-3">
-            <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
+            <li className="nav-item  text-nowrap d-none d-sm-none d-sm-block">
               <small><a className="nav-link" href="#"><span id="account"></span></a></small>
             </li>
           </ul>
         </nav>
         <div className="container-fluid">
           <div className="row">
-            <main role="main" className="col-lg-12 d-flex justify-content-center">
+            <div className="col-md-6">
+              <div>
+                <img src={Svg} className="App__svg" />
+              </div>
+            </div>
+            <div className="col-md-6">
+              <div className="App__second-column">
+            <main role="main" className="col-lg-12 d-flex ">
               {
                 this.state.loading
                   ? <div id="loader" className="text-center"><p className="text-center">Loading...</p></div>
@@ -87,13 +94,17 @@ class App extends Component {
                     toggleCompleted={this.toggleCompleted}
                   />
               }
-
+             
             </main>
-          </div>
+            </div>
+            </div>
+            
         </div>
         {/* <h1>Hello World</h1>
         <p>Your account: {this.state.account}</p>
         <p>Task Count: {this.state.taskCount}</p> */}
+        </div>
+        </div>
       </div>
     );
   }
